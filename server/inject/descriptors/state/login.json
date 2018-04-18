@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "login",
+      "match": [
+        "isloginstate"
+      ],
+      "screens": [
+        "LOGIN"
+      ],
+      "descriptor": "login"
+    }
+  ],
+  "properties": {
+    "isloginstate": {
+      "type": "string",
+      "selector": "#userid",
+      "control": "exists"
+    }
+  }
+}

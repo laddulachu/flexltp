@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "chinaltplink": {
+      "type": "action",
+      "control": "action.link",
+      "selector": "#table_webbookmarkline_2>tbody>tr>td:nth-child(2)>a"
+    }
+  }
+}

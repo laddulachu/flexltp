@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "prelogin",
+      "match": [
+        "ispreloginstate"
+      ],
+      "screens": [],
+      "descriptor": "prelogin"
+    }
+  ],
+  "properties": {
+    "ispreloginstate": {
+      "type": "string",
+      "selector": "#table_download_2",
+      "control": "exists"
+    }
+  }
+}

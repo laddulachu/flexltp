@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "timecorrection",
+      "match": [
+        "istimecorrection"
+      ],
+      "screens": ["TIMECORRECTION"],
+      "descriptor": "timecorrection"
+    }
+  ],
+  "properties": {
+    "istimecorrection": {
+      "type": "boolean",
+      "selector": "#G_CARDAPPROVALING",
+      "control": "exists"
+    }
+  }
+}

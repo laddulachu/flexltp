@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "leaveapproval",
+      "match": [
+        "isleaveapproval"
+      ],
+      "screens": [
+        "LEAVEAPPROVAL"
+      ],
+      "descriptor": "leaveapproval"
+    }
+  ],
+  "properties": {
+    "isleaveapproval": {
+      "type": "string",
+      "selector": "#G_LEAAPPROVALING",
+      "control": {
+        "fn": "function(node){var ele=document.querySelectorAll('#popWindowDIV102');return ele.length<=0}",
+        "control": "exists"
+      }
+    }
+  }
+}

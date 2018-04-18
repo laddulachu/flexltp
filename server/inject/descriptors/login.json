@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "type": "string",
+      "control": "text",
+      "selector": "#userid"
+    },
+    "password": {
+      "type": "string",
+      "selector": "#pwd",
+      "control": "text"
+    },
+    "login": {
+      "type": "action",
+      "selector": "#btnsubmit",
+      "control": "action.button"
+    }
+  },
+  "selector": "body"
+}

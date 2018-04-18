@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "postlogin",
+      "match": [
+        "ispostlogin"
+      ],
+      "screens": [],
+      "descriptor": "postlogin"
+    }
+  ],
+  "properties": {
+    "ispostlogin": {
+      "type": "string",
+      "control": "exists",
+      "selector": "#nodetab58_2201.nodeon"
+    }
+  }
+}

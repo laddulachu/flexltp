@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "approvetab": {
+      "type": "action",
+      "selector": "#nodetab52_2201",
+      "control": "action.button"
+    }
+  },
+  "selector": "body"
+}

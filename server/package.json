@@ -1,0 +1,15 @@
+{
+  "name": "flex",
+  "version": "5.0.0",
+  "private": true,
+  "description": "PowWow transformation",
+  "main": "start.js",
+  "scripts": {
+    "start": "nodemon start.js | bunyan -o short --color"
+  },
+  "author": "PowWow",
+  "license": "MIT",
+  "dependencies": {
+    "powwow-server-common": "git@github.com:powwowinc/powwow-server-common.git#v5"
+  }
+}

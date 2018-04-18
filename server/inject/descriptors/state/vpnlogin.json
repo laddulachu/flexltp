@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "vpnlogin",
+      "match": [
+        "isvpnlogin"
+      ],
+      "screens": [],
+      "descriptor": "vpnlogin"
+    }
+  ],
+  "properties": {
+    "isvpnlogin": {
+      "type": "string",
+      "selector": "#btnSubmit_6",
+      "control": "exists"
+    }
+  }
+}

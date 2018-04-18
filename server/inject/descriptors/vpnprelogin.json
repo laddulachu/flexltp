@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "continue": {
+      "type": "action",
+      "selector": "#btnContinue_4",
+      "control": "action.button"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "selector": "#username",
+      "control": "text"
+    },
+    "password": {
+      "type": "string",
+      "selector": "#password",
+      "control": "text"
+    },
+    "login": {
+      "type": "action",
+      "selector": "#btnSubmit_6",
+      "control": "action.button"
+    }
+  }
+}

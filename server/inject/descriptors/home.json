@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "leavependingforapproval": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#LEAAPPROVALING"
+    },
+    "attendancependingforapproval": {
+      "type": "action",
+      "selector": "#CARDAPPROVALING",
+      "control": "action.button"
+    },
+    "name": {
+      "type": "string",
+      "selector": "#myaccount",
+      "control": "property.innerText"
+    }
+  },
+  "selector": "body"
+}

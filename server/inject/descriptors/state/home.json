@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "home",
+      "match": [
+        "ishome"
+      ],
+      "screens": [
+        "HOME"
+      ],
+      "descriptor": "home"
+    }
+  ],
+  "properties": {
+    "ishome": {
+      "type": "string",
+      "selector": "#nodetab52_2201.nodeon",
+      "control": {
+        "fn": "function(node){var ele=document.getElementsByClassName('layoutform withsub');if(ele.length<=0){return true}else{return false}}",
+        "control": "exists"
+      }
+    }
+  }
+}

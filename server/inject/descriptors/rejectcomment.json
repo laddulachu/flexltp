@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "comment": {
+      "type": "string",
+      "control": "text",
+      "selector": "#APPREMARK"
+    },
+    "ok": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#ok_sys102"
+    },
+    "cancel": {
+      "type": "action",
+      "selector": "#cancel_sys102",
+      "control": "action.button"
+    }
+  }
+}

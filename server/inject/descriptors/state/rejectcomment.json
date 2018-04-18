@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "rejectcomment",
+      "match": [
+        "isrejectcomment"
+      ],
+      "screens": ["REJECTCOMMENT"],
+      "descriptor": "rejectcomment"
+    }
+  ],
+  "properties": {
+    "isrejectcomment": {
+      "type": "boolean",
+      "selector": "#windowTitle102",
+      "control": "exists",
+      "selectContains": "Reject"
+    }
+  }
+}

@@ -1,0 +1,322 @@
+<body onselectstart="return noSel();"><div style="height:0px;width:0px"><iframe src="https://chinaltptest.hkd.flextronics.com/centralltp/AttachHandler.aspx" name="attachHelper" id="attachHelper" width="0px" height="0px" style="height:0px;width:0px;border:none" frameborder="0px"></iframe><iframe name="attachDown" id="attachDown" width="0px" height="0px" frameborder="0px" style="height:0px;width:0px;border:none"></iframe></div>
+
+    <script src="js/KCalendar.js?v=17142" type="text/javascript"></script>
+
+    <script src="js/whenupdateForm.js?v=17132" type="text/javascript"></script>
+
+    <script src="Flow/js/MsgUtil.js?v=17132" type="text/javascript"></script>
+
+    <script type="text/javascript">var __isKYTop = 1;</script>
+    <script language="javascript" type="text/javascript">
+        //for current position
+        var curPosition = new Array();
+        function positionPlus(title, href) {
+            if (curPosition.length == 0 || href != curPosition[curPosition.length - 1]['href']) {
+                var node = new Array();
+                node['title'] = title;
+                node['href'] = href;
+                curPosition[curPosition.length] = node;
+            }
+            updatePosition();
+        }
+        function positionUpdate(current, title, href) {
+            if (curPosition[current - 1]) {
+                var node = new Array();
+                node['title'] = title;
+                node['href'] = href;
+                curPosition[current - 1] = node;
+            }
+            else {
+                positionPlus(title, href);
+            }
+            updatePosition();
+        }
+        function positionMinus(current) {
+            curPosition.splice(current, curPosition.length - current);
+            updatePosition();
+            //parent.content.location.href=curPosition[index]['href'];
+        }
+        function positionBack(current) {
+            curPosition.splice(curPosition.length - current, current);
+            updatePosition();
+            // parent.content.location.href=curPosition[index]['href'];
+        }
+
+        function updatePosition() {
+            if (curPosition.length < 1) {
+                clearPosition();
+                //parent.content.location.href='ESDefault.aspx';
+                return;
+            }
+            var html = '';
+            for (i = 0; i < curPosition.length; i++) {
+                if (i > 0)
+                    html += ' <img src="images/positionsplit.gif" style="margin-bottom:-5px" />&nbsp;&nbsp;';
+
+                if (i < curPosition.length - 1) {
+                    html += '<a class="positionitem" href="javascript:positionMinus(' + (i + 1) + ')">' + curPosition[i]['title'] + '</a>';
+                }
+                else {
+                    html += curPosition[i]['title'];
+                    if (typeof curPosition[i]['href'] == 'string') {
+                        $('formframe').src = curPosition[i]['href'];
+                    }
+                    else {
+                        curPosition[i]['href'].click();
+                    }
+                    //$('formframe').location.href=curPosition[i]['href'];           
+                }
+            }
+            document.getElementById('positionItems').innerHTML = html;
+
+
+        }
+        function clearPosition(current) {
+            if (current) {
+                curPosition.splice(current, curPosition.length - current);
+            }
+            else {
+                curPosition = new Array();
+                document.getElementById('positionItems').innerHTML = "";
+            }
+        }
+        
+        top.PageUnit=573;
+        var wc = null;
+        function getTreeContext(o){
+            var x = new Object();
+            wc.setfc(o.parentNode.getAttribute('fmkey'), o.parentNode.getAttribute('key'));
+            wc.CurrentForm = o.parentNode.getAttribute('fmkey');
+            x.Ctx = wc.toJSONString();
+            return x;
+        }
+        
+        function PreLoadImg()
+        {
+            var obj = ["checkbox0off.gif","checkbox0on.gif","checkbox1off.gif","checkbox1on.gif","checkbox2off.gif","checkbox2on.gif"];
+            for(var i=0;i<obj.length ;i++)
+            {
+                var img=new Image();
+                img.src="images/"+obj[i];
+            }
+         }
+        function SwitchZoneType(zoneID)
+        {
+            var obj = document.getElementById('RoleTabs'+zoneID);
+            obj.style.display='';
+            lastRoleTabs.style.display='none';            
+            lastRoleTabs = obj;
+            obj.firstChild.firstChild.click();
+        }
+         
+    </script>
+    <style type="text/css">
+    .withsub .griddiv
+    {
+	    height:244px;
+	    }
+	.withoutsub .griddiv
+	{
+	    height:573px;
+		}
+		
+
+    </style>
+
+
+
+    <form name="form1" method="post" action="Home.aspx?isess=1&amp;lgid=1033" id="form1" onkeypress="if(event.keyCode==13||event.which==13){return false;}" class="desktopoff">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTAxMDgwOTQ0Ng9kFgICAw9kFg4CAQ8PFgIeBFRleHQFBkhlbGxvIGRkAgMPDxYCHwAFFFZFTlVHT1BBTCBSQU1BTVVSVEhZZGQCBQ8PFgIfAAUG5Lit5paHZGQCBw8PFgIfAAUPQ2hhbmdlIHBhc3N3b3JkZGQCCw8PFgQeC05hdmlnYXRlVXJsBQtMb2dpbnguYXNweB8ABQ9FeGl0IHRoZSBzeXN0ZW1kZAINDxYCHwAFsgI8ZGl2IGlkPSJSb2xlVGFiczIyMDEiIGNsYXNzPSJyb2xlYmFyIj48L2Rpdj48ZGl2IGlkPSJSb2xlVGFiczcwMCIgc3R5bGU9ImRpc3BsYXk6bm9uZSIgY2xhc3M9InJvbGViYXIiPjwvZGl2PjxkaXYgaWQ9IlJvbGVUYWJzNDk5IiBzdHlsZT0iZGlzcGxheTpub25lIiBjbGFzcz0icm9sZWJhciI+PC9kaXY+PGRpdiBpZD0iUm9sZVRhYnMxOTkiIHN0eWxlPSJkaXNwbGF5Om5vbmUiIGNsYXNzPSJyb2xlYmFyIj48L2Rpdj48ZGl2IGlkPSJSb2xlVGFiczEzMDAiIHN0eWxlPSJkaXNwbGF5Om5vbmUiIGNsYXNzPSJyb2xlYmFyIj48L2Rpdj5kAg8PZBYCAgEPEGQPFgVmAgECAgIDAgQWBRAFEDIyMDEtQ2hlbm5haSBHQlMFBDIyMDFnEAUKNzAwLeePoOa1twUDNzAwZxAFDzQ5OS1Ob3J0aCBDaGluYQUDNDk5ZxAFDzE5OS1Tb3V0aCBDaGluYQUDMTk5ZxAFHTEzMDAtTSdzaWEvQmF0YW0vUydwb3JlL0luZGlhBQQxMzAwZ2RkZDdtqX9Ht+duUgX1Pf4EFS8AAAAA">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCAL2lYGiCALy1IadCAL5qbikDgLB4aPtDALK4Z97AoCCyuQPAoWCyuQPAsDh08YL3paa0LyUHcjZNxRQT+16xgAAAAA=">
+</div>
+    <div id="header" class="frheader">
+        <div class="content">
+            <div style="height: 43px; text-align: right; color: #f6faff; padding: 10px 20px 0 0">
+                <span id="hello">Hello </span>
+                <span id="myaccount">VENUGOPAL RAMAMURTHY</span>
+                |
+                <a id="bt_ChangeLanguage" href="javascript:__doPostBack('bt_ChangeLanguage','')">中文</a>
+                |
+                <a onclick="window.open('ChangeSelfPwd.aspx?toclose=1'); return false;" id="ChangePsw" href="javascript:__doPostBack('ChangePsw','')">Change password</a>
+                <span id="logoutsplit">| </span>
+                <a id="logout" href="Loginx.aspx">Exit the system</a></div>
+            <div style="height: 28px;">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody><tr>
+                        <td>
+                            <div style="margin-left: 100px">
+                                <div id="RoleTabs2201" class="rolebar" rendering=""><div style="float: left;"><div id="nodetab58_2201" class="node nodeon"><span class="l"></span><span class="c">Delegation Setup</span><span class="r"></span></div></div><div style="float: left;"><div id="nodetab52_2201" class="node nodeoff"><span class="l"></span><span class="c">Approval</span><span class="r"></span></div></div><div style="float: left;"><div id="nodetab53_2201" class="node nodeoff"><span class="l"></span><span class="c">Personal Information</span><span class="r"></span></div></div><div style="float: left;"><div id="nodetab57_2201" class="node nodeoff"><span class="l"></span><span class="c">Application</span><span class="r"></span></div></div><div style="float: left;"><div class="morearrow" style="display: none;"></div></div></div><div id="RoleTabs700" style="display:none" class="rolebar" rendering=""><div style="float: left;"><div id="nodetab1_700" class="node nodeoff"><span class="l"></span><span class="c">Work Flow</span><span class="r"></span></div></div><div style="float: left;"><div class="morearrow" style="display: none;"></div></div></div><div id="RoleTabs499" style="display:none" class="rolebar" rendering=""><div style="float: left;"><div id="nodetab1_499" class="node nodeoff"><span class="l"></span><span class="c">Approval</span><span class="r"></span></div></div><div style="float: left;"><div class="morearrow" style="display: none;"></div></div></div><div id="RoleTabs199" style="display:none" class="rolebar" rendering=""><div style="float: left;"><div id="nodetab1_199" class="node nodeoff"><span class="l"></span><span class="c">Approval</span><span class="r"></span></div></div><div style="float: left;"><div class="morearrow" style="display: none;"></div></div></div><div id="RoleTabs1300" style="display:none" class="rolebar" rendering=""><div style="float: left;"><div id="nodetab52_1300" class="node nodeoff"><span class="l"></span><span class="c">Approval</span><span class="r"></span></div></div><div style="float: left;"><div id="nodetab58_1300" class="node nodeoff"><span class="l"></span><span class="c">Delegation Setup</span><span class="r"></span></div></div><div style="float: left;"><div class="morearrow" style="display: none;"></div></div></div></div>
+                        </td>
+                        <td id="ZoneSelectTD" width="120">
+                            <select name="DL_ZoneTypes" id="DL_ZoneTypes" onchange="SwitchZoneType(this.options[this.selectedIndex].value)">
+	<option value="2201">2201-Chennai GBS</option>
+	<option value="700">700-珠海</option>
+	<option value="499">499-North China</option>
+	<option value="199">199-South China</option>
+	<option value="1300">1300-M'sia/Batam/S'pore/India</option>
+
+</select>
+                        </td>
+
+                    </tr>
+                </tbody></table>
+                <div style="background: url(images/rolemenubottom.gif) repeat-x; height: 6px; width: 100%;
+                    overflow: hidden; clear: left">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frdesk">
+        <div id="Desktop58_2201">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply And Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5581241" onclick="wc = new WinContext('5.58.1241','1313349');loadWindow('5.58.1241');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply And Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop52_2201" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply And Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5521241" onclick="wc = new WinContext('5.52.1241','1321644');loadWindow('5.52.1241');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply And Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop53_2201" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Employee Self-Service</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5531245" onclick="wc = new WinContext('5.53.1245','1329939');loadWindow('5.53.1245');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Attendance Details</div><div class="hmenuitem_off" id="menu_5531271" onclick="wc = new WinContext('5.53.1271','1329939');loadWindow('5.53.1271');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Attendance Details(For Supervisor)</div><div class="hmenuitem_off" id="menu_5531243" onclick="wc = new WinContext('5.53.1243','1329939');loadWindow('5.53.1243');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Leave Balance Info.</div><div class="hmenuitem_off" id="menu_5531272" onclick="wc = new WinContext('5.53.1272','1329939');loadWindow('5.53.1272');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Leave history</div></div></div><div class="hmenusplitline"></div><div><div onclick="displayObject(this)" class="hdesktopmenu_on">Attn.Info (For Manager)</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5531307" onclick="wc = new WinContext('5.53.1307','1329939');loadWindow('5.53.1307');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Attn.Info (For Manager)</div><div class="hmenuitem_off" id="menu_5531309" onclick="wc = new WinContext('5.53.1309','1329939');loadWindow('5.53.1309');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Daily Attendance</div><div class="hmenuitem_off" id="menu_5531311" onclick="wc = new WinContext('5.53.1311','1329939');loadWindow('5.53.1311');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Leave Taken History</div><div class="hmenuitem_off" id="menu_5531313" onclick="wc = new WinContext('5.53.1313','1329939');loadWindow('5.53.1313');homePath.update(this.innerText,this,1)"><img src="images/formico_201.gif" style="margin-bottom:-2px"> Leave History(Calendar)</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop57_2201" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply And Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5571241" onclick="wc = new WinContext('5.57.1241','1412214');loadWindow('5.57.1241');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply And Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop1_700" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply &amp; Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_411181" onclick="wc = new WinContext('4.1.1181','1412112');loadWindow('4.1.1181');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply &amp; Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop1_499" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply &amp; Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_311181" onclick="wc = new WinContext('3.1.1181','1412111');loadWindow('3.1.1181');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply &amp; Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop1_199" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply &amp; Approve</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_211184" onclick="wc = new WinContext('2.1.1184','1412110');loadWindow('2.1.1184');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply &amp; Approve</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop52_1300" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply And Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5521241" onclick="wc = new WinContext('5.52.1241','1387924');loadWindow('5.52.1241');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply And Approval</div></div></div><div class="hmenusplitline"></div>
+</div><div id="Desktop58_1300" style="display: none;">
+	<div><div onclick="displayObject(this)" class="hdesktopmenu_on">Apply And Approval</div><div class="hdesktopmenuitems"><div class="hmenuitem_off" id="menu_5581241" onclick="wc = new WinContext('5.58.1241','1388311');loadWindow('5.58.1241');homePath.update(this.innerText,this,1)"><img src="images/formico_208.gif" style="margin-bottom:-2px"> Apply And Approval</div></div></div><div class="hmenusplitline"></div>
+</div>
+    </div>
+    <div class="frdeskbar" id="desktoponbar" onclick="DesktoponBarClick()">
+    </div>
+    <div class="frnavi" id="mainposition">
+        <img src="images/mainposition.gif" style="margin-bottom: -3px">
+        <span id="homePathLink"><a href="javascript:homePath.go(1)">Delegation Setup</a> <img src="images/arrow1.gif">&nbsp;  Apply And Approval</span>
+    </div>
+    <div class="frmain">
+        <div id="container">
+            <div id="win" style=""><table width="100%" height="100%" cellpadding="0" cellspacing="0"><tbody><tr><td style="height:100%" valign="top" class="treeborder"><div id="tree" class="treeform"><div nowrap="nowrap" id="_treeRoot" root="1" dynamicurl="" onselectstart="return false" checkstyle="0"><div key="AGENT" fullid="605550" title="Delegation Setting"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);" oncontextmenu="select(this);return false" id="AGENT" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="0"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span style="CURSOR:pointer;">Delegation Setting</span></span><div nowrap=""><div key="AGENF" fullid="605550.605553" title="Set Delegation"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);" oncontextmenu="select(this);return false" id="AGENF" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="1"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span style="CURSOR:pointer;">Set Delegation</span></span><div nowrap=""><div key="AGENTREG" fullid="605553.605551" title="Set Delegation"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/ti.gif" align="absmiddle"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);loadForms('LayoutForm', '5.58.1241', '', 'AGENTREG');TreeNavigation(this);" oncontextmenu="select(this);return false" id="AGENTREG" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="1"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span class="uline" style="CURSOR:pointer;">Set Delegation</span></span><div nowrap=""></div></div><div key="AGENTEND" fullid="605553.605552" title="Delegation Ended"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/ti.gif" align="absmiddle"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);loadForms('LayoutForm', '5.58.1241', '', 'AGENTEND');TreeNavigation(this);" oncontextmenu="select(this);return false" id="AGENTEND" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="1"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span class="uline" style="CURSOR:pointer;">Delegation Ended</span></span><div nowrap=""></div></div></div></div><div key="AGENTQF" fullid="605550.605554" title="Delegation Query"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);" oncontextmenu="select(this);return false" id="AGENTQF" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="1"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span style="CURSOR:pointer;">Delegation Query</span></span><div nowrap=""><div key="AGENTQ" fullid="605554.605555" title="Delegation History"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/trb.gif" align="absmiddle"><img src="/CentralLTP/js/images/trm.gif" open="1" align="absmiddle" onclick="toggle(this,'');;TreeNavigation(this.nextSibling);"><span style="CURSOR:pointer" f="1" istreeentry="1" onclick="select(this);loadForms('LayoutForm', '5.58.1241', '', 'AGENTQ');TreeNavigation(this);" oncontextmenu="select(this);return false" id="AGENTQ" ondblclick="select(this);  toggle1(this, '')" onmousedown="onDrag(this)" _zindex="1"><img src="/CentralLTP/images/fclose.gif" border="0" class="treeimg"><span class="uline" style="CURSOR:pointer;">Delegation History</span></span><div nowrap=""></div></div></div></div></div></div></div><div id="_drag" nowrap="" style="position:absolute;filter:alpha(opacity=60)" zindex="99"></div></div></td><td style="height:100%;width:1px;" valign="top"><div id="resizeDiv" style="float:right;height:100%;width:2px;cursor:e-resize;" onmousedown="MouseDownToResize()" onmouseup="MouseUpToResize()"></div></td><td style="height:100%" valign="top" class="formborder"><div id="LayoutForm"></div></td></tr></tbody></table></div>
+        </div>
+    </div>
+    
+<script>homePath = new PathNavigation()</script><script>var tabbar;var lastRoleTabs = document.getElementById('RoleTabs2201');tabbar  = new DynamicTab(document.getElementById('RoleTabs2201'),true); tabbar.SelectedNodeClass='node nodeon';tabbar.ListClass='rolebarlist';tabbar.AddNode('Delegation Setup',function(o){updatehomepagename('Delegation Setup');displayCurrentObject($('Desktop58_2201'));homePath.update(o.innerText,o,0);extraOperation($('Desktop58_2201'));},true,'','nodetab58_2201');tabbar.AddNode('Approval',function(o){updatehomepagename('Approval');displayCurrentObject($('Desktop52_2201'));homePath.update(o.innerText,o,0);extraOperation($('Desktop52_2201'));},false,'','nodetab52_2201');tabbar.AddNode('Personal Information',function(o){updatehomepagename('Personal Information');displayCurrentObject($('Desktop53_2201'));homePath.update(o.innerText,o,0);extraOperation($('Desktop53_2201'));},false,'','nodetab53_2201');tabbar.AddNode('Application',function(o){updatehomepagename('Application');displayCurrentObject($('Desktop57_2201'));homePath.update(o.innerText,o,0);extraOperation($('Desktop57_2201'));},false,'','nodetab57_2201');tabbar.Render();tabbar.FirstNodeClick();tabbar  = new DynamicTab(document.getElementById('RoleTabs700'),true); tabbar.SelectedNodeClass='node nodeon';tabbar.ListClass='rolebarlist';tabbar.AddNode('Work Flow',function(o){updatehomepagename('Work Flow');displayCurrentObject($('Desktop1_700'));homePath.update(o.innerText,o,0);extraOperation($('Desktop1_700'));},false,'','nodetab1_700');tabbar.Render();tabbar  = new DynamicTab(document.getElementById('RoleTabs499'),true); tabbar.SelectedNodeClass='node nodeon';tabbar.ListClass='rolebarlist';tabbar.AddNode('Approval',function(o){updatehomepagename('Approval');displayCurrentObject($('Desktop1_499'));homePath.update(o.innerText,o,0);extraOperation($('Desktop1_499'));},false,'','nodetab1_499');tabbar.Render();tabbar  = new DynamicTab(document.getElementById('RoleTabs199'),true); tabbar.SelectedNodeClass='node nodeon';tabbar.ListClass='rolebarlist';tabbar.AddNode('Approval',function(o){updatehomepagename('Approval');displayCurrentObject($('Desktop1_199'));homePath.update(o.innerText,o,0);extraOperation($('Desktop1_199'));},false,'','nodetab1_199');tabbar.Render();tabbar  = new DynamicTab(document.getElementById('RoleTabs1300'),true); tabbar.SelectedNodeClass='node nodeon';tabbar.ListClass='rolebarlist';tabbar.AddNode('Approval',function(o){updatehomepagename('Approval');displayCurrentObject($('Desktop52_1300'));homePath.update(o.innerText,o,0);extraOperation($('Desktop52_1300'));},false,'','nodetab52_1300');tabbar.AddNode('Delegation Setup',function(o){updatehomepagename('Delegation Setup');displayCurrentObject($('Desktop58_1300'));homePath.update(o.innerText,o,0);extraOperation($('Desktop58_1300'));},false,'','nodetab58_1300');tabbar.Render();</script><script type="text/javascript">
+SessionUtil.LoginPage='Loginx.aspx';SessionUtil.Alarm='No operation for a long time, system forced to exit, please login again!';InitLanguage();UpdateLgId(1033);</script></form>
+
+    <script type="text/javascript">
+        window.onresize = function() {
+            //tabbar.Render();
+            //BarDivRender();
+            SetFormGridHeight();
+        }
+        
+        
+    function BarDivRender()
+    {
+       var list = enumSubAll(document.body, "toolbardiv");
+       if(list)
+       {
+            for(var i=0;i<list.length;i++) {
+                if (list[i].barobj) {
+                    list[i].barobj.Render();
+                }
+            } 
+       }
+    }
+    
+    function DesktoponBarClick()
+    {
+        if(form1.className=='desktopon') 
+            form1.className='desktopoff'; 
+        else 
+            form1.className='desktopon';
+            
+      BarDivRender();
+    }    
+    
+    </script>
+    
+        
+<script language="javascript" type="text/javascript">
+    function noSel() { return !isDraging; }
+    
+    var dragobj=null,isDraging;
+    function MouseDownToResize() {
+        isDraging=true;
+        var event = window.event; 
+        var obj = event.srcElement; 
+        $x.on(document.body, "mousemove", MouseMoveToResize);
+        $x.on(document.body, "mouseup", MouseUpToResize); 
+        obj.focus(); 
+        document.body.style.cursor = "e-resize";
+        obj.setAttribute('parentTdW', obj.parentNode.previousSibling.offsetWidth); 
+        var sibling = obj.parentNode.nextSibling; 
+        obj.setAttribute('siblingW' , sibling.offsetWidth);
+        obj.setAttribute('totalWidth', parseInt(obj.getAttribute('siblingW')) + parseInt(obj.getAttribute('parentTdW')) + obj.parentNode.offsetWidth);
+        if(obj.parentNode) 
+            obj.setAttribute('mouseDownX',event.clientX); 
+        else
+            obj.setAttribute('mouseDownX', event.pageX); 
+        dragobj=obj; 
+    } 
+    function MouseMoveToResize(event){ 
+        var e = event||window.event; 
+        if(dragobj==null) 
+            return false;
+//        if (e.srcElement != dragobj) {
+//            MouseUpToResize();
+//            return;
+//        }
+        if (!dragobj.getAttribute('mouseDownX')) 
+            return false;
+
+        newWidth = parseInt(dragobj.getAttribute('parentTdW')) + e.clientX - parseInt(dragobj.getAttribute('mouseDownX')); 
+        var sibling = dragobj.parentNode.previousSibling; 
+        //if width of column does not exceed minimum width 80, set column width
+        if (newWidth > 180 && (parseInt(dragobj.getAttribute('totalWidth')) - newWidth) > 180)
+        {
+            sibling.style.width = parseInt(dragobj.getAttribute('parentTdW')) + e.clientX - parseInt(dragobj.getAttribute('mouseDownX')) + 'px';
+            if(sibling)
+                sibling.firstChild.style.width = parseInt(dragobj.getAttribute('parentTdW')) + e.clientX - parseInt(dragobj.getAttribute('mouseDownX')) + 'px';
+            //sibling.style.width = dragobj.siblingW-e.clientX+dragobj.mouseDownX; 
+        }
+    }
+    function MouseUpToResize(){
+        isDraging = false;
+        if (dragobj == null) return false;
+        dragobj.setAttribute('mouseDownX', 0); 
+        document.body.style.cursor = ""; 
+        dragobj=null;
+        $x.off(document.body, "mousemove", MouseMoveToResize);
+        $x.off(document.body, "mouseup", MouseUpToResize);
+
+        BarDivRender();
+    }    
+</script> 
+
+
+
+</body>

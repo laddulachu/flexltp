@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "approvecomment",
+      "match": [
+        "isapprovecomment"
+      ],
+      "screens": ["APPROVECOMMENT"],
+      "descriptor": "approvecomment"
+    }
+  ],
+  "properties": {
+    "isapprovecomment": {
+      "type": "boolean",
+      "selector": "#windowTitle102",
+      "control": "exists",
+      "selectContains": "Approve"
+    }
+  }
+}

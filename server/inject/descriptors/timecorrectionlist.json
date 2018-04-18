@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "approve": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#frmmain>div>div:nth-child(5)>div"
+    },
+    "reject": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#frmmain>div>div:nth-child(6)>div"
+    },
+    "timecorrectionappn": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "selectappl": {
+            "type": "action",
+            "control": "action.button",
+            "selector": "td>img"
+          },
+          "name": {
+            "type": "string",
+            "selector": "td:nth-child(5)>div",
+            "control": "property.innerText"
+          },
+          "dateofregistration": {
+            "type": "string",
+            "control": "property.innerText",
+            "selector": "td:nth-child(3)"
+          },
+          "attendancedate": {
+            "type": "string",
+            "selector": "td:nth-child(7)",
+            "control": "property.innerText"
+          },
+          "clockintime": {
+            "type": "string",
+            "selector": "td:nth-child(8)",
+            "control": "property.innerText"
+          },
+          "clockouttime": {
+            "type": "string",
+            "selector": "td:nth-child(9)",
+            "control": "property.innerText"
+          },
+          "reason": {
+            "type": "string",
+            "selector": "td:nth-child(10)",
+            "control": "property.innerText"
+          },
+          "timecheckbox": {
+            "type": "boolean",
+            "selector": "td>img",
+            "control": {
+              "fn": "function(node){var source=node.src;return(source.indexOf('checkbox1')!=-1)}",
+              "control": "property"
+            }
+          }
+        }
+      },
+      "selectorAll": "tr[onclick*=\"loadSubForm\"]"
+    },
+    "home": {
+      "type": "action",
+      "selector": "#nodetab52_2201",
+      "control": "action.button"
+    }
+  }
+}

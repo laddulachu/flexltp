@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "link": {
+      "type": "string",
+      "control": "action.link",
+      "selector": "#table_download_2>tbody>tr>td>p>a"
+    }
+  }
+}

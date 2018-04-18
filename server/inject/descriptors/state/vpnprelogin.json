@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "stateVariants": [
+    {
+      "id": "vpnprelogin",
+      "match": [
+        "isvpnprelogin"
+      ],
+      "screens": [],
+      "descriptor": "vpnprelogin"
+    }
+  ],
+  "properties": {
+    "isvpnprelogin": {
+      "type": "string",
+      "selector": "#table_Remediate_14",
+      "control": "exists"
+    }
+  }
+}

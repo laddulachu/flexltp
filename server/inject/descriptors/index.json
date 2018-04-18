@@ -1,0 +1,13 @@
+[
+  "login.json",
+  "vpnlogin.json",
+  "ltpselection.json",
+  "home.json",
+  "leaveapproval.json",
+  "approvecomment.json",
+  "rejectcomment.json",
+  "timecorrectionlist.json",
+  "prelogin.json",
+  "vpnprelogin.json",
+  "postlogin.json"
+]

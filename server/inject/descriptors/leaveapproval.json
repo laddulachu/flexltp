@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "approve": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#frmmain>div>div:nth-child(4)>div"
+    },
+    "reject": {
+      "type": "action",
+      "control": "action.button",
+      "selector": "#frmmain>div>div:nth-child(5)>div"
+    },
+    "leaveappn": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "selectleave": {
+            "type": "boolean",
+            "control": {
+              "fn": "function(node){var source=node.src;return(source.indexOf('checkbox1')!=-1)}",
+              "control": "property"
+            },
+            "selector": "td.checktd>img"
+          },
+          "name": {
+            "type": "string",
+            "selector": "td:nth-child(3)>div",
+            "control": "property.innerText"
+          },
+          "leavetype": {
+            "type": "string",
+            "selector": "tr>td:nth-child(6)>div",
+            "control": "property.innerText"
+          },
+          "startdate": {
+            "type": "date",
+            "selector": "td:nth-child(7)",
+            "control": "property.innerText"
+          },
+          "enddate": {
+            "type": "date",
+            "selector": "td:nth-child(9)",
+            "control": "property.innerText"
+          },
+          "duration": {
+            "type": "string",
+            "selector": "td:nth-child(11)>div",
+            "control": "property.innerText"
+          },
+          "reason": {
+            "type": "string",
+            "selector": "td:nth-child(13)>div",
+            "control": "property.innerText"
+          },
+          "leavecheck": {
+            "type": "action",
+            "selector": "td.checktd>img",
+            "control": "action.button"
+          }
+        }
+      },
+      "selectorAll": "#G_LEAAPPROVALING>tbody>tr[onclick*=\"loadSubForm\"]"
+    },
+    "home": {
+      "type": "action",
+      "selector": "#nodetab52_2201",
+      "control": "action.button"
+    }
+  },
+  "selector": "body"
+}
