@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>Application</title>
+
+    <!-- build:css styles/styles.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/dependencies/0.13.9/angular-ui-notification/dist/angular-ui-notification.min.css" />
+    <link rel="stylesheet" href="/dependencies/0.13.9/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="/dependencies/0.13.9/ionic/css/ionic.css" />
+    <link rel="stylesheet" href="/dependencies/0.13.9/ng-table/dist/ng-table.min.css" />
+    <link rel="stylesheet" href="/dependencies/0.13.9/select2/select2.css" />
+    <link rel="stylesheet" href="/dependencies/0.13.9/angular-datepicker/dist/angular-datepicker.css" />
+    <!-- endbower -->
+    <!-- styles:app -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- /styles:app -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts.js -->
+    <!-- bower:js -->
+    <script src="/dependencies/0.13.9/angular/angular.js"></script>
+    <script src="/dependencies/0.13.9/angular-cookies/angular-cookies.js"></script>
+    <script src="/dependencies/0.13.9/angular-uuid/uuid.min.js"></script>
+    <script src="/dependencies/0.13.9/angular-jsonrpc-q/build/jsonrpc.js"></script>
+    <script src="/dependencies/0.13.9/angular-load/angular-load.js"></script>
+    <script src="/dependencies/0.13.9/angular-mocks/angular-mocks.js"></script>
+    <script src="/dependencies/0.13.9/moment/moment.js"></script>
+    <script src="/dependencies/0.13.9/angular-moment/angular-moment.js"></script>
+    <script src="/dependencies/0.13.9/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+    <script src="/dependencies/0.13.9/angular-ui-select/dist/select.js"></script>
+    <script src="/dependencies/0.13.9/angular-animate/angular-animate.js"></script>
+    <script src="/dependencies/0.13.9/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/dependencies/0.13.9/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/dependencies/0.13.9/ionic/js/ionic.js"></script>
+    <script src="/dependencies/0.13.9/ionic/js/ionic-angular.js"></script>
+    <script src="/dependencies/0.13.9/javascript-load-image/js/load-image.all.min.js"></script>
+    <script src="/dependencies/0.13.9/jstzdetect/jstz.min.js"></script>
+    <script src="/dependencies/0.13.9/ng-table/dist/ng-table.min.js"></script>
+    <script src="/dependencies/0.13.9/promise-polyfill/promise.js"></script>
+    <script src="/dependencies/0.13.9/jquery/dist/jquery.js"></script>
+    <script src="/dependencies/0.13.9/select2/select2.js"></script>
+    <script src="/dependencies/0.13.9/underscore/underscore.js"></script>
+    <script src="/dependencies/0.13.9/uri.js/src/URI.js"></script>
+    <script src="/dependencies/0.13.9/webrtc-adapter/adapter.js"></script>
+    <script src="/dependencies/0.13.9/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+    <script src="/dependencies/0.13.9/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+    <script src="/dependencies/0.13.9/angular-datepicker/dist/angular-datepicker.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/module.js"></script>
+    <script src="app.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/app.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/appmodel.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/device.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/env.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/http-interceptor.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/mockdata.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/screens.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/powwowLogin.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/queue.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/remote.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/rpc.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/services.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/stateManager.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/ui.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/url.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/ws.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/dateControl.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/dateFormat.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/dynamicFixedFooter.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/dynamicFixedHeader.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/dynamicFloatingFooter.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/includeScreen.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/ion-autocomplete.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/multiSelect.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/select.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/steps.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/switchTypeToNumber.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/takePhoto.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/directives/timeFormat.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/filters/highlight.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/filters/trustAsHtml.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/services/popupService.js"></script>
+    <script src="/dependencies/0.13.9/powwow-ui-common/src/services/tooltipService.js"></script>
+    <!-- endbower -->
+    <!-- scripts:app -->
+    <script src="handler.js"></script>
+    <script src="states.js"></script>
+    <!-- /scripts:app -->
+    <!-- scripts:controllers -->
+    <script src="controllers/app.js"></script>
+    <script src="controllers/app/login.js"></script>
+    <script src="controllers/app/menu.js"></script>
+    <script src="controllers/app/multiselect.js"></script>
+    <script src="controllers/app/approvecomment.js"></script>
+    <script src="controllers/app/approved.js"></script>
+    <script src="controllers/app/correctionapprovecomment.js"></script>
+    <script src="controllers/app/correctionapproved.js"></script>
+    <script src="controllers/app/correctionrejectcomment.js"></script>
+    <script src="controllers/app/correctionrejected.js"></script>
+    <script src="controllers/app/home.js"></script>
+    <script src="controllers/app/leaveapproval.js"></script>
+    <script src="controllers/app/leavedetails.js"></script>
+    <script src="controllers/app/rejectcomment.js"></script>
+    <script src="controllers/app/rejected.js"></script>
+    <script src="controllers/app/timecorrectiondetails.js"></script>
+    <script src="controllers/app/timecorrectionlist.js"></script>
+    <!-- /scripts:controllers -->
+    <!-- endbuild -->
+
+    <!-- build:js cordova/powwow.js -->
+    <!-- scripts:cordova -->
+    <script src="/dependencies/0.13.9/powwow-ui-common/cordova/cordova-injector.js"></script>
+    <!-- /scripts:cordova -->
+    <!-- endbuild -->
+
+</head>
+<body ng-app="app">
+    <ion-nav-view></ion-nav-view>
+</body>
+</html>

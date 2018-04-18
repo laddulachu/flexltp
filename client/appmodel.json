@@ -1,0 +1,212 @@
+{
+  "login": {
+    "name": "login",
+    "data": {
+      "account": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "login": {
+        "account": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "vpnlogin": {
+    "name": "vpnlogin",
+    "data": {
+      "username": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "login": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "ltpselection": {
+    "name": "ltpselection",
+    "data": {},
+    "actions": {
+      "chinaltplink": {}
+    }
+  },
+  "home": {
+    "name": "home",
+    "data": {
+      "name": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "leavependingforapproval": {},
+      "attendancependingforapproval": {}
+    }
+  },
+  "leaveapproval": {
+    "name": "leaveapproval",
+    "data": {
+      "leaveappn": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "selectleave": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "leavetype": {
+              "type": "string"
+            },
+            "startdate": {
+              "type": "date"
+            },
+            "enddate": {
+              "type": "date"
+            },
+            "duration": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "approve": {},
+      "reject": {},
+      "leavecheck": {
+        "selectleave": {
+          "type": "string"
+        }
+      },
+      "home": {}
+    }
+  },
+  "approvecomment": {
+    "name": "approvecomment",
+    "data": {
+      "comment": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "ok": {
+        "comment": {
+          "type": "string"
+        }
+      },
+      "cancel": {
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "rejectcomment": {
+    "name": "rejectcomment",
+    "data": {
+      "comment": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "ok": {
+        "comment": {
+          "type": "string"
+        }
+      },
+      "cancel": {
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "timecorrectionlist": {
+    "name": "timecorrectionlist",
+    "data": {
+      "timecorrectionappn": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dateofregistration": {
+              "type": "string"
+            },
+            "attendancedate": {
+              "type": "string"
+            },
+            "clockintime": {
+              "type": "string"
+            },
+            "clockouttime": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "timecheckbox": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "approve": {},
+      "reject": {},
+      "selectappl": {
+        "timecheckbox": {
+          "type": "string"
+        }
+      },
+      "home": {}
+    }
+  },
+  "prelogin": {
+    "name": "prelogin",
+    "data": {},
+    "actions": {
+      "link": {}
+    }
+  },
+  "vpnprelogin": {
+    "name": "vpnprelogin",
+    "data": {},
+    "actions": {
+      "continue": {}
+    }
+  },
+  "postlogin": {
+    "name": "postlogin",
+    "data": {},
+    "actions": {
+      "approvetab": {}
+    }
+  }
+}

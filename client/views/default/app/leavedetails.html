@@ -1,0 +1,83 @@
+<ion-view data-comp-id="ionic-view.1">
+    <ion-nav-bar align-title="" class="  bar-energized navbar-clr"
+        data-comp-id="nav-bar.1">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon ion-ios-arrow-left" data-comp-id="button.1"
+                ng-click="myGoBack()"></button>
+            <button class="button button-icon ion-navicon" data-comp-id="button.2"
+                ng-click="app.call('leavedetails.goToHome')"></button>
+        </ion-nav-buttons>
+        <ion-nav-title data-comp-id="nav-title.1">Leave Approval</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon ion-earth" data-comp-id="button.3"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class=" dark-bg" data-comp-id="ionic-content.1"
+        style="background-color: rgb(27, 27, 27);">
+        <div class=" card" data-comp-id="div.1"
+            style="background-color: rgb(48, 48, 48); padding: 10px 10px 20px;">
+            <div class="row" data-comp-id="row.1" style="margin: 0%;">
+                <div class="col" data-comp-id="column.1">
+                    <div class="" data-comp-id="text.1"
+                        style="font-size: 18px; color: rgb(101, 208, 254);">{{leave.name}}</div>
+                </div>
+            </div>
+            <div class="row" data-comp-id="row.2" style="margin: 0% 0% 2%;">
+                <div class="col col-33" data-comp-id="column.2"
+                    style="padding: 0px 0px 0px 6px;">
+                    <div data-comp-id="text.2" style="color: rgb(255, 255, 255);">Leave Type</div>
+                    <div data-comp-id="text.3"
+                        style="color: rgb(255, 255, 255); margin: 2px 0px 0px;">Duration</div>
+                </div>
+                <div class="col" data-comp-id="column.3" style="padding: 0px;">
+                    <div data-comp-id="text.4" style="color: rgb(255, 255, 255);">{{leave.leave_type}}</div>
+                    <div data-comp-id="text.5"
+                        style="color: rgb(255, 255, 255); margin: 2px 0px 0px;">{{leave.duration}}</div>
+                </div>
+            </div>
+            <div class="row" data-comp-id="row.3"
+                style="margin: 4% 0% 0%; background-color: rgb(27, 27, 27);">
+                <div class="col" data-comp-id="column.4"
+                    style="padding: 10px; background-color: rgb(27, 27, 27);">
+                    <div data-comp-id="text.6"
+                        style="font-style: italic; font-size: 12px; color: rgba(255, 255, 255, 0.6);">Start Date</div>
+                    <div data-comp-id="text.7" style="color: rgb(255, 255, 255);">{{leave.start_date}}</div>
+                </div>
+                <div class="col" data-comp-id="column.5"
+                    style="padding: 10px 0px 10px 12px; background-color: rgb(27, 27, 27);">
+                    <div data-comp-id="text.8"
+                        style="font-style: italic; font-size: 12px; color: rgba(255, 255, 255, 0.6);">End Date</div>
+                    <div data-comp-id="text.9" style="color: rgb(255, 255, 255);">{{leave.end_date}}</div>
+                </div>
+            </div>
+            <div class="row" data-comp-id="row.4"
+                style="margin: 0%; background-color: rgb(33, 69, 84);">
+                <div class="col" data-comp-id="column.6"
+                    style="background-color: rgb(33, 69, 84); padding: 10px;">
+                    <div data-comp-id="text.10"
+                        style="font-style: italic; font-size: 12px; color: rgba(255, 255, 255, 0.6);">Reason</div>
+                    <div data-comp-id="text.11" style="color: rgb(255, 255, 255);">{{leave.reason}}</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar data-comp-id="footer-bar.1" dynamic-fixed-footer=""
+        style="background-color: rgb(0,0,0);">
+        <div data-comp-id="div.2">
+            <div class="row" data-comp-id="row.5" style="background-color: rgb(0, 0, 0);">
+                <div class="col" data-comp-id="column.7" ng-click="rejectLeave()">
+                    <i class="icon ion-thumbsdown" data-comp-id="icon.1"
+                        style="float: left; margin: 0px 0px 0px 36px; font-size: 24px; color: rgb(255, 59, 48);"></i>
+                    <div data-comp-id="text.12"
+                        style="float: left; margin: 0px 0px 0px 4px; font-size: 16px; color: rgb(255, 59, 48);">Reject</div>
+                </div>
+                <div class="col" data-comp-id="column.8" ng-click="approveLeave()">
+                    <i class="icon ion-thumbsup" data-comp-id="icon.2"
+                        style="float: left; margin: 0px 0px 0px 36px; font-size: 24px; color: rgb(76, 217, 100);"></i>
+                    <div data-comp-id="text.13"
+                        style="float: left; margin: 0px 0px 0px 4px; font-size: 16px; color: rgb(76, 217, 100);">Approve</div>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

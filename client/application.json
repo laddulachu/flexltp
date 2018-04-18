@@ -1,0 +1,7 @@
+{
+  "name": "Flex",
+  "defaultLayout": "phone-portrait",
+  "sideMenu": true,
+  "previewToken": "ba6ce261",
+  "uiCommonVersion": "0.13.9"
+}

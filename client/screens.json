@@ -1,0 +1,77 @@
+{
+  "id": "app",
+  "name": "Flex",
+  "startScreen": "app.login",
+  "screens": [
+    {
+      "id": "app.login",
+      "name": "Login",
+      "model": "login"
+    },
+    {
+      "id": "app.menu",
+      "name": "menu"
+    },
+    {
+      "id": "app.multiselect",
+      "name": "multiselect"
+    },
+    {
+      "id": "app.approvecomment",
+      "name": "approvecomment",
+      "model": "approvecomment"
+    },
+    {
+      "id": "app.approved",
+      "name": "approved"
+    },
+    {
+      "id": "app.correctionapprovecomment",
+      "name": "correctionapprovecomment"
+    },
+    {
+      "id": "app.correctionapproved",
+      "name": "correctionapproved"
+    },
+    {
+      "id": "app.correctionrejectcomment",
+      "name": "correctionrejectcomment"
+    },
+    {
+      "id": "app.correctionrejected",
+      "name": "correctionrejected"
+    },
+    {
+      "id": "app.home",
+      "name": "home",
+      "model": "home"
+    },
+    {
+      "id": "app.leaveapproval",
+      "name": "leaveapproval",
+      "model": "leaveapproval"
+    },
+    {
+      "id": "app.leavedetails",
+      "name": "leavedetails"
+    },
+    {
+      "id": "app.rejectcomment",
+      "name": "rejectcomment",
+      "model": "rejectcomment"
+    },
+    {
+      "id": "app.rejected",
+      "name": "rejected"
+    },
+    {
+      "id": "app.timecorrectiondetails",
+      "name": "timecorrectiondetails"
+    },
+    {
+      "id": "app.timecorrectionlist",
+      "name": "timecorrectionlist",
+      "model": "timecorrectionlist"
+    }
+  ]
+}

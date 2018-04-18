@@ -1,0 +1,87 @@
+<ion-view data-comp-id="ionic-view.1">
+    <ion-nav-bar align-title="" class=" bar-energized navbar-clr"
+        data-comp-id="nav-bar.1">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon ion-navicon" data-comp-id="button.1"
+                ng-click="app.call('leaveapproval.goToHome')"></button>
+        </ion-nav-buttons>
+        <ion-nav-title data-comp-id="nav-title.1">Leave Approval</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon ion-earth" data-comp-id="button.2"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class=" dark-bg" data-comp-id="ionic-content.1"
+        style="background-color: rgb(27, 27, 27);">
+        <b ng-show="noRecords" style="color: white;">
+            No records to show</b>
+        <div class=" card" data-comp-id="div.1" ng-repeat="item in data.leaveappn"
+            style="background-color: #303030; padding: 10px;">
+            <div class="row" data-comp-id="row.1" style="margin: 0% 2%;">
+                <div class="col col-10" data-comp-id="column.1">
+                    <input class=" light-bg" data-comp-id="textInput.1"
+                        ng-click="app.call('leaveapproval.leavecheckbox',{'itemNo':'{{item.$i}}'})"
+                        ng-model="item.selectleave"
+                        style="background-color: rgb(255, 255, 255); border: 1px solid rgb(153, 153, 153); width: 20px; height: 20px; float: right; margin: 0px 10px 0px 0px;"
+                        type="checkbox">
+                </div>
+                <div class="col" data-comp-id="column.2" ng-click="leaveDetails(item)">
+                    <div class="" data-comp-id="text.1" ng-bind="item.name"
+                        style="font-size: 18px; color: rgb(101, 208, 254);"></div>
+                </div>
+            </div>
+            <div class="row" data-comp-id="row.2" style="margin: 0% 2%;">
+                <div class="col col-10" data-comp-id="column.3"></div>
+                <div class="col col-33" data-comp-id="column.4"
+                    style="padding: 0px 0px 0px 6px;">
+                    <div data-comp-id="text.2" style="color: rgb(255, 255, 255);">Leave Type</div>
+                    <div data-comp-id="text.3"
+                        style="color: rgb(255, 255, 255); margin: 2px 0px 0px;">Duration</div>
+                </div>
+                <div class="col" data-comp-id="column.5" style="padding: 0px;">
+                    <div data-comp-id="text.4" ng-bind="item.leavetype"
+                        style="color: rgb(255, 255, 255);"></div>
+                    <div data-comp-id="text.5" ng-bind="item.duration"
+                        style="color: rgb(255, 255, 255); margin: 2px 0px 0px;"></div>
+                </div>
+            </div>
+            <div class="row" data-comp-id="row.3" style="margin: 4% 2% 2%;">
+                <div class="col col-10" data-comp-id="column.6"></div>
+                <div class="col" data-comp-id="column.7"
+                    style="padding: 10px; border-right: 1px solid rgb(98, 98, 98); background-color: rgb(27, 27, 27);">
+                    <div data-comp-id="text.6"
+                        style="font-style: italic; font-size: 12px; color: rgba(255, 255, 255, 0.6);">Start Date</div>
+                    <div data-comp-id="text.7" ng-bind="item.startdate"
+                        style="color: rgb(255, 255, 255);"></div>
+                </div>
+                <div class="col" data-comp-id="column.8"
+                    style="padding: 10px 0px 10px 12px; background-color: rgb(27, 27, 27);">
+                    <div data-comp-id="text.8"
+                        style="font-style: italic; font-size: 12px; color: rgba(255, 255, 255, 0.6);">End Date</div>
+                    <div data-comp-id="text.9" ng-bind="item.enddate"
+                        style="color: rgb(255, 255, 255);"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar data-comp-id="footer-bar.1" dynamic-fixed-footer=""
+        style="background-color: rgb(0,0,0);">
+        <div data-comp-id="div.2">
+            <div class="row" data-comp-id="row.4" style="background-color: rgb(0, 0, 0);">
+                <div class="col" data-comp-id="column.9"
+                    ng-click="app.call('leaveapproval.levereject')">
+                    <i class="icon ion-thumbsdown" data-comp-id="icon.1"
+                        style="float: left; margin: 0px 0px 0px 36px; font-size: 24px; color: rgb(255, 59, 48);"></i>
+                    <div data-comp-id="text.10"
+                        style="float: left; margin: 0px 0px 0px 4px; font-size: 16px; color: rgb(255, 59, 48);">Reject</div>
+                </div>
+                <div class="col" data-comp-id="column.10"
+                    ng-click="app.call('leaveapproval.leveapprove')">
+                    <i class="icon ion-thumbsup" data-comp-id="icon.2"
+                        style="float: left; margin: 0px 0px 0px 36px; font-size: 24px; color: rgb(76, 217, 100);"></i>
+                    <div data-comp-id="text.11"
+                        style="float: left; margin: 0px 0px 0px 4px; font-size: 16px; color: rgb(76, 217, 100);">Approve</div>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>
