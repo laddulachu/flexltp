@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Powwow Web Transformation Server Test Page</title>
+        <script>
+            var wsInstance;
+
+            function log(message, time) {
+               var timestamp = new Date(time).toLocaleString();
+               var messagesTextArea = document.getElementById("messages");
+               messagesTextArea.value += timestamp + ": " + message + "\n";
+               messagesTextArea.scrollTop = messagesTextArea.scrollHeight;
+            }
+
+            function clearLog() {
+               var messagesTextArea = document.getElementById("messages");
+               messagesTextArea.value = "";
+            }
+
+            function openConnection() {
+                var rpcUrl = document.getElementById("rpcUrl").value;
+                wsInstance = new WebSocket(rpcUrl);
+
+                wsInstance.addEventListener('open', function (event) {
+                    document.getElementById("connectButton").setAttribute("disabled",  "disabled");
+                    document.getElementById("disconnectButton").style.display = '';
+                    document.getElementById("sendMessageArea").style.display = '';
+                    document.getElementById("connectButton").innerHTML = "Connection established";
+                    log('Connected to ' + rpcUrl, event.timeStamp);
+                });
+
+                wsInstance.addEventListener('message', function(event) {
+                    var jsonRpcData = JSON.parse(event.data);
+                    log("Received message:\nMethod:\n" + jsonRpcData.method + "\nParams:\n" + JSON.stringify(jsonRpcData.params, null, 2) + "\n", event.timeStamp);
+                });
+
+                wsInstance.addEventListener('close', function (event) {
+                    log('Websocket connection closed. Reason: ' + event.reason, event.timeStamp);
+                    document.getElementById("connectButton").removeAttribute("disabled");
+                    document.getElementById("disconnectButton").style.display = 'none';
+                    document.getElementById("sendMessageArea").style.display = 'none';
+                    document.getElementById("connectButton").innerHTML = "Connect to server";
+                });
+
+                wsInstance.addEventListener('error', function (event) {
+                    console.log(event);
+                    log('Websocket error.', event.timeStamp);
+                });
+            }
+            var requestId = 0;
+            function sendMessage() {
+                var method = document.getElementById("method").value;
+                method = method.trim();
+                if(method.length == 0) {
+                    log("Please enter a method to send", new Date().getTime());
+                    return;
+                }
+                var unparsedParams = document.getElementById("params").value;
+                unparsedParams = unparsedParams.trim();
+                var params;
+                if(unparsedParams.length == 0) {
+                    params = null;
+                } else {
+                    try {
+                        params = JSON.parse(unparsedParams);
+                    } catch(e) {
+                        console.log(e);
+                        log("Params JSON is invalid: " + e.toString(), new Date().getTime());
+                        return;
+                    }
+                }
+
+                wsInstance.send(JSON.stringify({
+                        jsonrpc: '2.0',
+                        method: method,
+                        params: params,
+                        id: requestId++
+                    }));
+
+               log("Method: " + method + " has been called", new Date().getTime());
+            }
+
+            function closeConnection() {
+                wsInstance.close();
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>URL of Powwow Web Transformation server (e.g. ws://localhost:3000):</div>
+            <div style="margin-top:5px"><input type="text" style="width:50%" id="rpcUrl" value="ws://localhost:3000"></input></div>
+            <div style="margin-top:5px">
+                <button id="connectButton" onclick="openConnection()">Connect to server</button>
+                <button id="disconnectButton" style="display: none" onclick="closeConnection()">Close connection</button>
+            </div>
+            <div style="margin-top:10px">
+                <div>Log: <a style="font-size: 14px; float: right;" href="javascript:clearLog()">clear log</a></div>
+                <textarea style="margin-top:5px;width:100%;height:250px" id="messages"></textarea>
+            </div>
+            <div id="sendMessageArea" style="display:none;">
+                <div style="margin-top:10px">Method: <input type="text" style="width:320px" placeholder="Enter message..." id="method" value=""></input> <button id="sendButton" onclick="sendMessage()">Send</button></div>
+                <div>Params:</div>
+                <div style="margin-top:5px"><textarea id="params" style="width:50%;height:100px">{
+}</textarea></div>
+            </div>
+        </div>
+    </body>
+</html>

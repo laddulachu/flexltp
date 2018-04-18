@@ -1,0 +1,29 @@
+{
+  "name": "powwow-server-common",
+  "version": "1.5.0",
+  "private": true,
+  "description": "Powwow Web Transformation server.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "nodemon start.js | bunyan -o short --color"
+  },
+  "author": {
+    "name": "Samir Mahendra"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "1.5.1",
+    "faker": "latest",
+    "moment": "latest",
+    "nodemon": "latest",
+    "promise": "latest",
+    "request": "latest",
+    "underscore": "latest",
+    "websocket": "latest",
+    "async": "latest",
+    "asynquence": "latest",
+    "asynquence-contrib": "latest",
+    "jsondiffpatch": "latest"
+  }
+}
